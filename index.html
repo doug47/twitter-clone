@@ -12,9 +12,9 @@
 					</div>
 				</div>
 				<div class="tweet-content">
-					<input id="tweet-left" class="tweet-compose" maxlength="140" value="" placeholder="Compose new Tweet..."/></input>
-					<div class="tweet-controls">
-						<div class="char-count">140</div>
+					<textarea id="tweet-left" class="tweet-compose" value="" placeholder="Compose new Tweet..."/ contenteditable></textarea>
+					<div style='display:none' class="tweet-controls">
+						<div id='char-count' class="char-count">140</div>
 						<button>Tweet</button>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 							</div>
 							<div class="reply">
 								<img class="avatar" src="https://si0.twimg.com/profile_images/1482831577/vendetta_headshot.jpg" />
-								<input class="tweet-compose" maxlength="140" value="" placeholder="Reply to @mybff"/></input>
+								<textarea class="tweet-compose" maxlength="140" value="" placeholder="Reply to @mybff"></textarea>
 							</div>
 						</div>
 					</div>

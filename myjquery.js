@@ -1,45 +1,56 @@
 $(function() {
 
-	//javascript 
+//Below is to make the tweet button and 
 
-	$('#tweet-left').focus(function(e){
-    	var app = $(this).text();
-    	// alert("It works!")
-    	$('#tweet-left').css({
-				"height": "5em",
-			});
+	$('#tweet-left').focus(function(){
     	$('.tweet-controls').css({
-    			"visibility": "visible",
+    			"display": "block",
     		});
-
-    	var supportOnInput = 'oninput' in document.createElement('input.tweet-compose');
-
-     	$("input.tweet-compose[maxlength]").each(function() {
-	    var $this = $(this);
-	    var maxLength = parseInt($this.attr('maxlength'));
-	    $this.attr('maxlength', null);
-	    
-	    var el = $(".char-count");
-	    
-	    $this.bind(supportOnInput ? 'input.tweet-compose' : 'keyup', function() {
-	        var cc = $this.val().length;
-	        
-	        el.text(maxLength - cc);
-	        
-	        if(maxLength < cc) {
-	            el.css('color', 'red');
-	        } else {
-	            el.css('color', 'grey');
-	        }
-	       
-
-	    });
-
 	});
 
+
+	$('.tweet-compose').blur(function(){
+    	$('.tweet-controls').css({
+    			"display": "none",
+    		});
 	});
 
+// Below is the code for char-count countdown and color change.
+
+	$( "#tweet-left" ).keyup(function(){
+		var total = 140;
+		 	total = total - $('#tweet-left').val().length;
+
+		 	$('.char-count').text(total);
+
+
+		 	if(total < 10) 
+		 		{
+		           $('.char-count').css('color', 'red');
+		        } 
+		        else 
+		        {
+		           $('.char-count').css('color', 'grey');
+		        }
+       });
+
+
+	$( "#tweet-left" ).keydown(function() {
+		var ma = 140;
+		 	total = total - $('#tweet-left').val().length;
+		 	$('.char-count').text(total);
+
+		 	if(total < 10) 
+		 		{
+		            $('.char-count').css('color', 'red');
+		        } 
+		        else 
+		        {
+		           $('.char-count').css('color', 'grey');
+		        }
+	});
+
+//Below is code to color up the tweet button when it is ready to be colored.
 	
-
 	
 });
